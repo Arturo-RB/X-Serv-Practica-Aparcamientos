@@ -1,0 +1,121 @@
+
+body {
+    background-color:  #2f3034;
+}
+
+#github{
+    background-color:  #3b3b64 ;
+}
+
+.container {
+    text-align: center;
+}
+
+html, body, #mapid {
+    height: 100%;
+    width: 100%;
+}
+
+#mapid {
+    margin: 60px 0px 0px 10px;
+    height: 480px;
+    width: 100%;
+    border:rgb(75, 175, 6) 5px solid;
+    border-radius:10px 10px 10px 10px;
+}
+
+
+#list{
+    max-height: 555px; 
+    overflow-y: scroll;
+    background-color: silver;
+}
+
+#get{
+    width: 250px;
+    text-align: center;
+    background-image:-moz-linear-gradient(top,  #82ea9d, #123ebd);
+    background-image:-webkit-linear-gradient(top,  #82ea9d , #123ebd);
+    background-image:linear-gradient(top,  #82ea9d , #123ebd);
+    border-radius: 7px; 
+}
+
+h1 {
+    opacity: 0.8;
+    text-align: center;
+    background-size: cover;
+}
+
+h2, #parking_name{
+    color: yellow;
+}
+
+#street{
+    color: #58c70c;
+}
+
+#desc{
+	color: white;
+}
+
+li{
+    cursor: move;
+}
+
+#carousel_park img{
+    height: 250px;
+    width: 100%;
+    float: left;
+}
+
+
+#carousel_park{
+    display: block;
+    height: 250px;
+    background-position: center;
+    background-repeat: non-repeat;
+    background-size: cover;
+}
+
+#coleccion, #date, #usuarios{
+    margin: 10px;
+}
+
+#coleccion, #usuarios{
+    width: 100%;
+    background-image:-moz-linear-gradient(top, #bb1a07, #123ebd);
+    background-image:-webkit-linear-gradient(top, #bb1a07, #123ebd);
+    background-image:linear-gradient(top, #bb1a07, #123ebd);
+    border-radius: 100%;
+}
+
+#load, #save{
+    width: 100%;
+    background-image:-moz-linear-gradient(top, #057e07 ,  #9b79df );
+    background-image:-webkit-linear-gradient(top,  #057e07 ,  #9b79df );
+    background-image:linear-gradient(top, #057e07,  #9b79df );
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+
+#listado, #atributos, #list_profiles, #profiles {
+    height: 520px;
+    border-radius:10px 10px 10px 10px;
+    border:rgb(75, 175, 6) 5px solid;
+    background-color:  #c482ea;
+}
+
+#list_aparc{
+    max-height: 300px; 
+    overflow-y:scroll;
+    border:rgb(75, 175, 6) 1px solid;
+}
+
+#perfil{
+    margin: 20px;
+    color: white;
+    max-height: 400px; 
+    overflow-y: scroll;
+}
+

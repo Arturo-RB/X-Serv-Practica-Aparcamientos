@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Arturo Rodriguez">
+
+    <title>Aparcamientos</title>
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/aparcamientos.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script type="text/javascript" src="js/aparcamientos.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/github.js"></script>
+    
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">           
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Aparcamientos</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active">
+                    <a data-toggle="tab" href="#home"><b>HOME</b></a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#colecciones"><b>Colecciones</b></a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#instalaciones"><b>Instalaciones</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">       
+        <div class="fill" style="background-image:url('images/madrid3.jpg');"></div>
+        <div class="carousel-caption">           
+            <h1><img src="images/yoaparco2.jpg"></h1>
+        </div>            
+    </header>
+
+    <!-- Page Content -->
+    <div class="row">
+        <div class="col-md-9"> 
+            <div class="tab-content">
+                <selector id="home" class="tab-pane fade in active">  
+                    <div class="row">
+                        <div class="col-md-8"> 
+                            <div id="mapid"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="parking_name"></div>
+                            <div id="street"></div>
+                            <div id="desc"></div>
+                            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                                <div id="carousel_park" class="carousel-inner" role="listbox"></div>                 
+                                <a class="left carousel-control" href="#carouselIndicators" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carouselIndicators" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>  
+                            </div>                                            
+                        </div>
+                    </div>                       
+                </selector>                           
+            
+                <div id="colecciones" class="tab-pane fade">
+                    <p>COLECCIONES</p>
+                    <div class="row">
+                        <form id="form_col">
+                            <div class="col-md-4" id="newcol">
+                                <br><input type="submit" class="btn btn-primary" id="coleccion" value="Crear Colección">
+                                <input id="date" type="text" class="form-control" placeholder="colección">
+                            </div>
+                        </form>
+
+                        <div class="atributos col-md-4" id="atributos">
+                            <label>Lista de Colecciones:</label>
+                            <div id="attr"><ul></ul></div>
+                        </div>
+
+                        <div class="listado col-md-4" id="listado">
+                            <label>Colección:</label>
+                            <div id="name_col"><ul></ul></div>
+                            <label>Aparcamientos de la coleccion:</label>
+                            <div id="list_aparc"><ul></ul></div>
+                        </div> 
+                    </div>                             
+                </div>
+                <div id="instalaciones" class="tab-pane fade">                      
+                    <p>INSTALACIONES</p>
+                    <div class="row">
+                        <div class="col-md-4" id="newperfil">
+                            <button id="conectar" class="btn btn-primary">conectar</button>
+                            <button id="usuarios" class="btn btn-primary">Cargar usuarios</button>
+                            <div id="perfil"></div>
+                        </div>
+                       
+                        
+                        <div class="profiles col-md-4" id="profiles">
+                            <label>Usuarios google:</label>
+                            <div id="profile"></div>
+                        </div>
+
+                        <div class="list_profiles col-md-4" id="list_profiles">
+                            <label>Descripción del aparcamiento:</label>
+                            <div id="name_prof"><ul></ul></div>
+                            
+                        </div>
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" id="sidebar" role="navigation" style="float:left;">                  
+            <ul class="nav" id="scroll">                                       
+                <button id="get" class="btn btn-primary">Mostrar Parkings</button>
+                <div id="list"></div>
+            </ul>                
+        </div>
+    </div>
+
+
+    <section id="github">
+        <div class="col-md-3">
+
+            <button id = "save" class="guardar btn btn-primary">Guardar en Github</button><br>
+            
+            <input id="token_save" type="text" class="form-control" placeholder="token de github">
+            <input id="repo_save" type="text" class="form-control" placeholder="nombre del repositorio">
+            <input id="file_save" type="text" class="form-control" placeholder="fichero">
+            <div id="repodata"></div>
+        </div>
+
+        <div class="col-md-1" id="nemo"></div>
+        <div class="col-md-5" id="nemo">
+            <img src="images/pildoras.jpg">
+        </div>
+
+        <div class="col-md-3">
+            <button id = "load" class="cargar btn btn-primary">Cargar de Github</button>
+            
+            <input id="token_load" type="text" class="form-control" placeholder="token">
+            <input id="repo_load" type="text" class="form-control" placeholder="nombre del repositorio">
+            <input id="file_load" type="text" class="form-control" placeholder="fichero">
+        </div>
+
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>By: Arturo Rodriguez</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </section>
+    
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+</body>
+
+</html>
+
